@@ -1,6 +1,7 @@
 package com.sparta.myblogsparta.service.post;
 
 
+import com.sparta.myblogsparta.controller.dto.PostListResponseDto;
 import com.sparta.myblogsparta.controller.dto.PostResponseDto;
 import com.sparta.myblogsparta.controller.dto.PostSaveRequestDto;
 import com.sparta.myblogsparta.controller.dto.PostUpdateRequestDto;
@@ -10,6 +11,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service  // 스프링님 이거슨 서비스에요.
@@ -27,10 +30,6 @@ public class PostService {
     // 수정
     @Transactional
     public Long update(Long id, PostUpdateRequestDto requestDto) {
-        if (requestDto.getPassword().isEqualTo(postRepository.findById(id).getPassword())) {
-
-
-        }
         Post post = postRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("해당 게시글이 없습니다. id = " + id)
         );
@@ -47,4 +46,17 @@ public class PostService {
         return  new PostResponseDto(entity);
     }
 
+    // 삭제
+    @Transactional
+    public void delete(Long id) {
+        Post post = postRepository.findById(id).orElseThrow(
+                ()-> new IllegalArgumentException("해당 게시글이 존재하지 않습니다. id=" + id)
+        );
+        postRepository.delete(post);
+    }
+
+    @Transactional
+    public List<PostListResponseDto> findAllDesc() {
+        return postRepository.findAllDesc().stream().map(PostListResponseDto::new).collect(Collectors.toList());
+    }
 }
