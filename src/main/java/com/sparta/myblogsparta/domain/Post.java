@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter  // 클래스 내 모든 필드의 getter 메소 자동 추가
 @NoArgsConstructor  // 기본 생성자 자동 추가
 @Entity  // 테이블과 연결될 클래스임
-public class Post {
+public class Post extends Timestamped {
 
 
     @Id  // 테이블의 pk 필드
