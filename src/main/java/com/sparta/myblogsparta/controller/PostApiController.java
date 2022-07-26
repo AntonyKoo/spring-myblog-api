@@ -24,8 +24,8 @@ public class PostApiController {  // request data를 받는 api 구현 @controll
         return postService.update(id, requestDto);
     }
 
-    @GetMapping("/api/post/{id}")  // 글 조회
-    public PostResponseDto findById (@PathVariable Long id) {
+    @GetMapping("/api/post/{id}")  // id 값을 통한 개별 글 조회
+    public PostResponseDto findById(@PathVariable Long id) {
         return postService.findById(id);
     }
 }

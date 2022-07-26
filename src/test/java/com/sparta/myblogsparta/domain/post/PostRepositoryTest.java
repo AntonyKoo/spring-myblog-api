@@ -29,10 +29,10 @@ public class PostRepositoryTest {
 
     @Test
     public void 게시글저장_불러오기() {
-        String title = "테스트 글제목";
-        String content = "테스트 글내용";
-        String author = "테스트 작성자";
-        String password = "테스트 비번";
+        String title = "테스트글제목";
+        String content = "테스트글내용";
+        String author = "테스트작성자";
+        String password = "테스트비번";
 
         postRepository.save(Post.builder()  // 테이블에 insert(if id is null)/update(if id is not null) 쿼리를 실행
                 .title(title)
@@ -41,13 +41,13 @@ public class PostRepositoryTest {
                 .password(password)
                 .build());
 
-        List<Post> postsList = postRepository.findAll();  // 모든 데이터 조회
+        List<Post> postList = postRepository.findAll();  // 모든 데이터 조회
 
-        Post posts = postsList.get(0);
-        assertThat(posts.getTitle()).isEqualTo(title);
-        assertThat(posts.getContent()).isEqualTo(content);
-        assertThat(posts.getAuthor()).isEqualTo(author);
-        assertThat(posts.getPassword()).isEqualTo(password);
+        Post post = postList.get(0);
+        assertThat(post.getTitle()).isEqualTo(title);
+        assertThat(post.getContent()).isEqualTo(content);
+        assertThat(post.getAuthor()).isEqualTo(author);
+        assertThat(post.getPassword()).isEqualTo(password);
 
     }
 

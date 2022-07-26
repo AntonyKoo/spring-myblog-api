@@ -16,7 +16,7 @@ public class PostSaveRequestDto {
     private String content;
     private String author;
     private String password;
-    @Builder
+    @Builder  // 빌더 클래스가 생성되어 setter 대신 각 필드값을 채워줌
     public PostSaveRequestDto(String title, String content, String author, String password) {
         this.title = title;
         this.content = content;
