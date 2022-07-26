@@ -1,6 +1,5 @@
 package com.sparta.myblogsparta.controller.dto;
 
-
 import com.sparta.myblogsparta.domain.Post;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,7 +24,7 @@ public class PostSaveRequestDto {
         this.password = password;
     }
 
-    public Post toEntity() {
+    public Post toEntity() {  // Entity
         return Post.builder()
                 .title(title)
                 .content(content)

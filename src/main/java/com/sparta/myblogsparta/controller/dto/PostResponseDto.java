@@ -17,5 +17,6 @@ public class PostResponseDto {
         this.title = entity.getTitle();
         this.content = entity.getContent();
         this.author = entity.getAuthor();
+        this.password = entity.getPassword();
     }
 }
