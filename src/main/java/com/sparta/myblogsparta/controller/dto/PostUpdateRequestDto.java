@@ -11,9 +11,12 @@ public class PostUpdateRequestDto {
     private String title;
     private String content;
 
+    private String password;
+
     @Builder
-    public PostUpdateRequestDto(String title, String content) {
+    public PostUpdateRequestDto(String title, String content, String password) {
         this.title = title;
         this.content = content;
+        this.password = password;
     }
 }
