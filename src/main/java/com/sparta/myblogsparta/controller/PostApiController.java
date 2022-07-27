@@ -27,6 +27,11 @@ public class PostApiController {  // request data를 받는 api 구현 @controll
         return postService.update(id, requestDto);
     }
 
+    @PostMapping("/api/post/{id}")  // 비번 비교 - 암호형식 아닌 단순 필드 비교
+    public boolean check(@PathVariable Long id, @RequestBody PostUpdateRequestDto requestDto) {
+        return postService.check(id, requestDto);
+    }
+
     @GetMapping("/api/post/{id}")  // id 값을 통한 개별 글 조회
     public PostResponseDto findById(@PathVariable Long id) {
         return postService.findById(id);
