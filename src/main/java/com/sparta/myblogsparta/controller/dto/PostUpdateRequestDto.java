@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 public class PostUpdateRequestDto {
     private String title;
     private String content;
-
     private String password;
 
     @Builder
