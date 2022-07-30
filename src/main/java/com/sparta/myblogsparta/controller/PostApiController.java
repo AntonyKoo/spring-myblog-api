@@ -37,7 +37,7 @@ public class PostApiController {  // request data를 받는 api 구현 @controll
         return postService.findById(id);
     }
 
-    @GetMapping("/api/post")
+    @GetMapping("/api/post")  // 전체 조회
     public List<PostListResponseDto> viewAll() {
         return postService.findAllDesc();
     }
